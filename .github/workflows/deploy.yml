@@ -8,7 +8,7 @@ env:
   MONGODB_NAME: gha-demo
 jobs:
   test:
-    env: 
+    env:
       MONGODB_CLUSTER_ADDRESS: cluster0.wozj6ee.mongodb.net
       MONGODB_USERNAME: swampermovie
       MONGODB_PASSWORD: tesseradecades
@@ -31,11 +31,11 @@ jobs:
         run: npm test
       - name: Output information
         run: |
-          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo "MONGODB_USERNAME: ${{env.MONGODB_USERNAME}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
-          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+        run: |
+          echo "MONGODB_USERNAME: ${{env.MONGODB_USERNAME}}"
